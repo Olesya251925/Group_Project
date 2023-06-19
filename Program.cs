@@ -51,7 +51,7 @@ public class WeatherStation : ISubject
     }
 }
 
-// Реализация наблюдател
+// Реализация наблюдателя
 public class Display : IObserver
 {
     public void Update(string data)
