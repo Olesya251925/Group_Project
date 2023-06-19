@@ -7,7 +7,7 @@ public interface IObserver
     void Update(string data);
 }
 
-// Интерфейс для субъек
+// Интерфейс для субъекта
 public interface ISubject
 {
     void Attach(IObserver observer);
