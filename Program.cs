@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-// Интерфейс для наблюдател
+// Интерфейс для наблюдателя
 public interface IObserver
 {
     void Update(string data);
