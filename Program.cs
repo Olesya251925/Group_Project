@@ -16,12 +16,12 @@ public interface ISubject
 }
 
 // Реализация субъекта
-public class WeatherStation : ISubject
+public class Dishes : ISubject
 {
     private List<IObserver> _observers;
-    private string _weatherData;
+    private string _dishesData;
 
-    public WeatherStation()
+    public Dishes()
     {
         _observers = new List<IObserver>();
     }
@@ -40,13 +40,13 @@ public class WeatherStation : ISubject
     {
         foreach (var observer in _observers)
         {
-            observer.Update(_weatherData);
+            observer.Update(_dishesData);
         }
     }
 
-    public void SetWeatherData(string weatherData)
+    public void SetDishes(string dishesData)
     {
-        _weatherData = weatherData;
+        _dishesData = dishesData;
         Notify();
     }
 }
@@ -185,10 +185,10 @@ public class Program
     public static void Main(string[] args)
     {
         // Использование поведенческого паттерна: Наблюдатель (Observer)
-        WeatherStation weatherStation = new WeatherStation();
+        Dishes dishes = new Dishes();
         Display display = new Display();
-        weatherStation.Attach(display);
-        weatherStation.SetWeatherData("Температура: 28°C");
+        dishes.Attach(display);
+        dishes.SetDishes("Добро пожаловать в нашу программу!\n");
 
         // Использование структурного паттерна: Адаптер (Adapter)
         ExternalApi externalApi = new ExternalApi();
@@ -248,9 +248,9 @@ public class Program
 
                 case "3":
                     Console.WriteLine("Получение названий популярных блюд в России...");
-                    weatherStation.SetWeatherData("1) Борщ");
-                    weatherStation.SetWeatherData("2) Оливье");
-                    weatherStation.SetWeatherData("3) Холодец");
+                    dishes.SetDishes("1) Борщ");
+                    dishes.SetDishes("2) Оливье");
+                    dishes.SetDishes("3) Холодец");
 
                     Console.WriteLine();
                     break;
